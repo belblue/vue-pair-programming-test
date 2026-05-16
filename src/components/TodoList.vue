@@ -1,12 +1,13 @@
 <template>
   <h1>To Do List:</h1>
-  <p>Find your task:</p>
-  <input v-model="input" type="text" placeholder="Type the task here" />
+  <!-- <p>Find your task:</p>
+  <input v-model="input" type="text" placeholder="Type the task here" />-->
+  <ItemFilter :todos="todos" @update:filtered="filteredTasks = $event" />
   <p>Current tasks:</p>
   <ul>
     <li
-      v-if="filtered.length > 0"
-      v-for="(todo, index) in filtered"
+      v-if="filteredTasks.length > 0"
+      v-for="(todo, index) in filteredTasks"
       :key="index"
     >
       {{ todo }}
@@ -17,14 +18,11 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-const input = ref("");
+import ItemFilter from "./ItemFilter.vue";
+
 const todos = ref<string[]>(["Task 1", "Task 2", "Task 3", "Task 4", "Task 5"]);
 
-const filtered = computed(() => {
-  return todos.value.filter((item) =>
-    item.toLowerCase().includes(input.value.toLowerCase()),
-  );
-});
+const filteredTasks = ref<string[]>([]);
 </script>
 
 <style scoped lang="scss">
