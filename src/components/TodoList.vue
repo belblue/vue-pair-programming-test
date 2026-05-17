@@ -1,19 +1,19 @@
 <template>
-  <h1>To Do List:</h1>
-  <!-- <p>Find your task:</p>
-  <input v-model="input" type="text" placeholder="Type the task here" />-->
-  <ItemFilter :todos="todos" @update:filtered="filteredTasks = $event" />
-  <p>Current tasks:</p>
-  <ul>
-    <li
-      v-if="filteredTasks.length > 0"
-      v-for="(todo, index) in filteredTasks"
-      :key="index"
-    >
-      {{ todo }}
-    </li>
-    <li v-else>No results</li>
-  </ul>
+  <div class="card">
+    <h1>To Do List</h1>
+    <ItemFilter :todos="todos" @update:filtered="filteredTasks = $event" />
+    <p>Current tasks:</p>
+    <ul>
+      <li
+        v-if="filteredTasks.length > 0"
+        v-for="(todo, index) in filteredTasks"
+        :key="index"
+      >
+        {{ todo }}
+      </li>
+      <li v-else>No results</li>
+    </ul>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -26,20 +26,9 @@ const filteredTasks = ref<string[]>([]);
 </script>
 
 <style scoped lang="scss">
-h1 {
-  font-size: 2em;
-  margin-bottom: 10px;
-}
-
-button {
-  margin: 5px;
-  padding: 10px;
-  font-size: 1em;
-}
-p {
-  font-size: 1.5em;
-}
 li {
   font-size: 1.25rem;
+  width: fit-content;
+  margin: auto;
 }
 </style>

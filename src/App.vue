@@ -1,7 +1,9 @@
 <template>
   <HelloWorld />
-  <Counter />
-  <TodoList />
+  <div class="flex">
+    <Counter />
+    <TodoList />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -13,6 +15,6 @@ import TodoList from "./components/TodoList.vue";
 <style lang="scss">
 #app {
   text-align: center;
-  margin-top: 60px;
+  margin: 60px 20px;
 }
 </style>

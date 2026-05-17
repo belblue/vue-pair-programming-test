@@ -1,9 +1,11 @@
 <template>
-  <h1>Counter</h1>
-  <p>Current Count: {{ count }}</p>
-  <button id="increment" @click="increment">Increment</button>
-  <button id="decrement" @click="decrement">Decrement</button>
-  <button class="reset" @click="reset">Reset</button>
+  <div class="card">
+    <h1>Counter</h1>
+    <p>Current Count: {{ count }}</p>
+    <button id="increment" @click="increment">Increment</button>
+    <button id="decrement" @click="decrement">Decrement</button>
+    <button class="reset" @click="reset">Reset</button>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -32,17 +34,8 @@ function reset() {
 </script>
 
 <style scoped lang="scss">
-h1 {
-  font-size: 2em;
-  margin-bottom: 10px;
-}
-
-button {
-  margin: 5px;
-  padding: 10px;
-  font-size: 1em;
-}
+//red slightly darker to improve contrast
 .reset {
-  background-color: red;
+  background-color: rgb(195, 0, 0);
 }
 </style>

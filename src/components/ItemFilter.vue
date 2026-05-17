@@ -35,5 +35,10 @@ input {
   margin: 5px;
   padding: 10px;
   font-size: 1.25em;
+  border-radius: $radius-sm;
+  &:focus-visible {
+    outline: 2px solid $primary-dark;
+    outline-offset: 2px;
+  }
 }
 </style>
